@@ -50,7 +50,6 @@ ZBX_METRIC	parameters_specific[] =
 	{"system.cpu.switches", 0,		SYSTEM_CPU_SWITCHES,	NULL,	NULL},
 	{"system.cpu.intr",	0,		SYSTEM_CPU_INTR,	NULL,	NULL},
 	{"system.cpu.util",	CF_USEUPARAM,	SYSTEM_CPU_UTIL,	NULL,	"all,user,avg1"},
-	{"system.cpu.load",	CF_USEUPARAM,	SYSTEM_CPU_LOAD,	NULL,	"all,avg1"},
 	{"system.cpu.num",	CF_USEUPARAM,	SYSTEM_CPU_NUM,		NULL,	"online"},
 
 	{"system.hw.chassis",	CF_USEUPARAM,	SYSTEM_HW_CHASSIS,	NULL,	NULL},
