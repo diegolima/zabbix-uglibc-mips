@@ -24,6 +24,11 @@
 
 #include "evalfunc.h"
 
+// The libs shipped with Tomato doesn't seem to implement round()
+double round(double r) {
+    return (r > 0.0) ? floor(r + 0.5) : ceil(r - 0.5);
+}
+
 int	cmp_double(double a, double b)
 {
 	return fabs(a - b) < TRIGGER_EPSILON ? SUCCEED : FAIL;
