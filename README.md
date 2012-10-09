@@ -2,6 +2,8 @@ zabbix-agent-ulibc-mips
 =======================
 
 Zabbix agent ready for compiling on MIPS architecture and uclibc-compatible.
+Some work has also been done on the server to allow it to run on MIPS-based
+devices, however this is *extremely* experimental.
 
 
 Wtf?
