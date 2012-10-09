@@ -10540,6 +10540,10 @@ $as_echo_n "checking for ICONV support... " >&6; }
 		ICONV_CFLAGS="-I/usr/local/include"
 		ICONV_LDFLAGS="-L/usr/local/lib"
 		found_iconv="yes"
+	elif test -f /opt/include/iconv.h; then
+		ICONV_CFLAGS="-I/opt/include"
+		ICONV_LDFLAGS="-I/opt/lib"
+		found_iconv="yes"	
 	else
 		found_iconv="no"
 		{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5

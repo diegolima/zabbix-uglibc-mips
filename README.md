@@ -1,7 +1,7 @@
 zabbix-agent-ulibc-mips
 =======================
 
-Zabbix agent ready for compiling on MIPS architecture and uclibc-compatible
+Zabbix agent ready for compiling on MIPS architecture and uclibc-compatible.
 
 
 Wtf?
@@ -14,3 +14,22 @@ couple of things in the agent code in order for it to build correctly:
 - Disabled support for Load Average (getloadavg() not available on uclibc systems)
 - Disabled support for DNS-resolver functions (the DD-WRT provided toolchain does not
   handle the resolving functions very well)
+
+
+How Do I Get It Working?
+========================
+
+On DD-WRT
+=========
+You'll need optware working and install the following packages:
+- grep
+
+Check that you have a working /opt/bin/grep (if you happen to have a /opt/bin/grep-grep
+you'll need to create a symlink to /opt/bin/grep).
+
+This is my recommended "configure" line for the agent. As of this time it has been tested
+on Tomato and DD-WRT v24-sp2 (07/20/12) (SVN revision 19519).
+
+./configure --bindir=/opt/bin --sbindir=/opt/sbin --libexecdir=/opt/usr/libexec -
+-sysconfdir=/opt/etc/zabbix --localstatedir=/opt/var --libdir=/opt/lib --oldincludedir=/opt/include --includedir=/opt/include --datarootdir=
+/opt/usr/share --enable-agent --build=mipsel-unknown-linux-gnu
