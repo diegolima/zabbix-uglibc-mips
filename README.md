@@ -29,9 +29,13 @@ You'll need optware working and install the following packages:
 Check that you have a working /opt/bin/grep (if you happen to have a /opt/bin/grep-grep
 you'll need to create a symlink to /opt/bin/grep).
 
-This is my recommended "configure" line for the agent. As of this time it has been tested
+This is my recommended compiling procedure. As of this time it has been tested
 on Tomato and DD-WRT v24-sp2 (07/20/12) (SVN revision 19519).
 
-./configure --bindir=/opt/bin --sbindir=/opt/sbin --libexecdir=/opt/usr/libexec -
+
+# unset LD_PRELOAD
+# unset LD_LIBRARY_PATH
+# ./configure --bindir=/opt/bin --sbindir=/opt/sbin --libexecdir=/opt/usr/libexec -
 -sysconfdir=/opt/etc/zabbix --localstatedir=/opt/var --libdir=/opt/lib --oldincludedir=/opt/include --includedir=/opt/include --datarootdir=
 /opt/usr/share --enable-agent --build=mipsel-unknown-linux-gnu
+# make install
