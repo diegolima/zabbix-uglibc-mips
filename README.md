@@ -25,6 +25,7 @@ On DD-WRT
 =========
 You'll need optware working and install the following packages:
 - grep
+- buildroot
 
 Check that you have a working /opt/bin/grep (if you happen to have a /opt/bin/grep-grep
 you'll need to create a symlink to /opt/bin/grep).
