@@ -33,10 +33,15 @@ This is my recommended compiling procedure. As of this time it has been tested
 on Tomato and DD-WRT v24-sp2 (07/20/12) (SVN revision 19519).
 
 
+```bash
 unset LD_PRELOAD
-
 unset LD_LIBRARY_PATH
-
 ./configure --bindir=/opt/bin --sbindir=/opt/sbin --libexecdir=/opt/usr/libexec --sysconfdir=/opt/etc/zabbix --localstatedir=/opt/var --libdir=/opt/lib --oldincludedir=/opt/include --includedir=/opt/include --datarootdir=/opt/usr/share --enable-agent --build=mipsel-unknown-linux-gnu
-
 make install
+```
+
+More about Zabbix
+=================
+
+Please see http://www.zabbix.com/ for detailed information about Zabbix.
+On-line Zabbix documentation is available at http://www.zabbix.com/documentation/2.0/manual/installation/install .
