@@ -1,0 +1,31 @@
+#!/bin/sh
+# This script starts and stops zabbix_agentd and is meant to be used on DD-WRT
+# and variants.
+#
+# Author: Diego Lima <diego@diegolima.org>
+unset LD_PRELOAD
+unset LD_LIBRARY_PATH
+
+case $1 in
+	start)
+                grep -q zabbix /etc/passwd || echo "zabbix:x:105:105:zabbix:/opt/home/zabbix:/bin/false" >> /etc/passwd
+                grep -q zabbix /etc/group  || echo "zabbix:x:105:" >> /etc/group
+                test -d /opt/home/zabbix   || mkdir -p /opt/home/zabbix
+                /opt/sbin/zabbix_agentd
+                ;;
+        stop)
+                echo "Stopping Zabbix Agent"
+                killall zabbix_agentd
+                ;;
+        status)
+                pidof zabbix_agentd
+                if [ $? = 0 ]; then
+                        echo "Zabbix agent is running"
+                        exit 0
+                else
+                        echo "Zabbix agent is NOT running"
+                        exit 1
+                fi
+                ;;
+        *) echo "Usage: [start|stop|status]";;
+esac
