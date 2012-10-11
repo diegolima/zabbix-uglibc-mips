@@ -6,6 +6,11 @@
 unset LD_PRELOAD
 unset LD_LIBRARY_PATH
 
+# DD-WRT doesn't invoke scripts the "right" way. Ensure this will work
+# at boot time with no arguments
+ACTION=$1
+test -z $ACTION && ACTION="start"
+
 case $1 in
 	start)
                 grep -q zabbix /etc/passwd || echo "zabbix:x:105:105:zabbix:/opt/home/zabbix:/bin/false" >> /etc/passwd
